@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Comidas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Color de fondo claro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #e63946; /* Color rojo */
+        }
+
+        .menu {
+            margin: 20px;
+        }
+
+        .menu select {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f1faee; /* Color de fondo claro */
+            border: 2px solid #457b9d; /* Color de borde azul */
+            border-radius: 5px;
+            color: #1d3557; /* Color de texto azul oscuro */
+        }
+
+        .comida {
+            margin-top: 20px;
+        }
+
+        .comida img {
+            max-width: 300px;
+            height: auto;
+            display: none;
+            border: 5px solid #a8dadc; /* Color de borde verde claro */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menú de Comidas</h1>
+    <div class="menu">
+        <select id="comidaSelect">
+            <option value="">Selecciona una comida</option>
+            <option value="pizza">Pizza</option>
+            <option value="hamburguesa">Hamburguesa</option>
+            <option value="sushi">Sushi</option>
+        </select>
+    </div>
+    <div class="comida">
+        <img id="pizza" src="https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso-1080x671.jpg" alt="Pizza">
+        <img id="hamburguesa" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSANFtyOrtjZNjduMIuGkB0hSKVZ7gk-0bDDg&s" alt="Hamburguesa">
+        <img id="sushi" src="https://imag.bonviveur.com/sushi-casero.jpg" alt="Sushi">
+    </div>
+
+    <script>
+        document.getElementById('comidaSelect').addEventListener('change', function() {
+            const selectedValue = this.value;
+            const images = document.querySelectorAll('.comida img');
+            images.forEach(img => {
+                img.style.display = 'none'; // Ocultar todas las imágenes
+            });
+            if (selectedValue) {
+                document.getElementById(selectedValue).style.display = 'block'; // Mostrar la imagen seleccionada
+            }
+        });
+    </script>
+</body>
+</html>
